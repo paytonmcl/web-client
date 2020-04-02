@@ -33,7 +33,9 @@ const Home = () => {
         </Grid.Column>
         <Grid.Column>
           <Link to="/login">
-            <Button secondary>Log in</Button>
+            <Button secondary size="big">
+              Log in
+            </Button>
           </Link>
         </Grid.Column>
       </Grid>
