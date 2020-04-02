@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Container } from 'semantic-ui-react';
 
 import './styles/dashboard.css';
 import ChatCard from './components-dashboard/ChatCard';
@@ -14,6 +14,21 @@ const mockData = [
   },
   {
     chatName: 'Chat 2',
+    online: 12,
+    members: 21,
+  },
+  {
+    chatName: 'Chat 3',
+    online: 12,
+    members: 21,
+  },
+  {
+    chatName: 'Chat 4',
+    online: 0,
+    members: 21,
+  },
+  {
+    chatName: 'Chat 5',
     online: 12,
     members: 21,
   },
@@ -65,7 +80,9 @@ const Dashboard = () => {
           <h3>Chats</h3>
         </Menu.Menu>
       </Menu>
-      <ChatList chatCards={chats} />
+      <Container>
+        <ChatList chatCards={chats} />
+      </Container>
     </>
   );
 };
