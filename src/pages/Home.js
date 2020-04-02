@@ -11,30 +11,32 @@ const Home = () => {
       fontSize: '32pt',
     },
     h1: {
-      marginTop: '2rem'
-    }
-
+      marginTop: '2rem',
+    },
   };
-
   return (
     <Container style={styles.container}>
-
-      <Header as='h1' style={styles.h1}>korero</Header>
-      <Header.Subheader as='p'>A simple, open-source chat application.</Header.Subheader>
+      <Header as="h1" style={styles.h1}>
+        korero
+      </Header>
+      <Header.Subheader as="p">
+        A simple, open-source chat application.
+      </Header.Subheader>
 
       <Grid columns={2} stackable>
         <Grid.Column>
-          <Link to='/register'>
-            <Button primary size='big'>Register</Button>
+          <Link to="/register">
+            <Button primary size="big">
+              Register
+            </Button>
           </Link>
         </Grid.Column>
         <Grid.Column>
-          <Link to='/login'>
+          <Link to="/login">
             <Button secondary>Log in</Button>
           </Link>
         </Grid.Column>
       </Grid>
-
     </Container>
   );
 };
