@@ -1,8 +1,15 @@
 import React from 'react';
 
+import { Container } from 'semantic-ui-react';
+
+import RegisterForm from './components-register/RegisterForm';
+
 const Register = () => {
   return (
-    <p>Hello Register!</p>
+    <Container>
+      <h1>Register</h1>
+      <RegisterForm />
+    </Container>
   );
 };
 
