@@ -23,21 +23,23 @@ const Home = () => {
         A simple, open-source chat application.
       </Header.Subheader>
 
-      <Grid columns={2} stackable>
+      <Grid columns={4} stackable>
+        <Grid.Column />
         <Grid.Column>
           <Link to="/register">
-            <Button primary size="big">
+            <Button primary size="big" fluid>
               Register
             </Button>
           </Link>
         </Grid.Column>
         <Grid.Column>
           <Link to="/login">
-            <Button secondary size="big">
+            <Button secondary size="big" fluid>
               Log in
             </Button>
           </Link>
         </Grid.Column>
+        <Grid.Column />
       </Grid>
     </Container>
   );
