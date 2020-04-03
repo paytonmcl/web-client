@@ -6,7 +6,7 @@ import RegisterForm from './components-register/RegisterForm';
 
 const Register = () => {
   return (
-    <Container>
+    <Container style={{ marginTop: '5vh' }}>
       <h1>Register</h1>
       <RegisterForm />
     </Container>

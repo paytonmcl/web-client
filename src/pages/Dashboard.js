@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Menu, Icon, Container } from 'semantic-ui-react';
+import { Menu, Icon, Container, Loader, Dimmer } from 'semantic-ui-react';
 
 import './styles/dashboard.css';
 import ChatCard from './components-dashboard/ChatCard';
@@ -67,9 +67,9 @@ const Dashboard = () => {
 
   if (!hasLoaded) {
     return (
-      <div className="loading">
-        <p>Loading...</p>
-      </div>
+      <Dimmer active>
+        <Loader size="massive">Loading...</Loader>
+      </Dimmer>
     );
   }
 
