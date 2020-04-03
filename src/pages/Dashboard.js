@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { Menu, Icon, Container, Loader, Dimmer } from 'semantic-ui-react';
+import { Menu, Icon, Container } from 'semantic-ui-react';
 
 import './styles/dashboard.css';
 import ChatCard from './components-dashboard/ChatCard';
 import ChatList from './components-dashboard/ChatList';
 import MenuSidebar from './components-dashboard/MenuSidebar';
+import DimSpinner from './components-shared/DimSpinner';
 
 const mockData = [
   {
@@ -66,11 +67,7 @@ const Dashboard = () => {
   }, []);
 
   if (!hasLoaded) {
-    return (
-      <Dimmer active>
-        <Loader size="massive">Loading...</Loader>
-      </Dimmer>
-    );
+    return <DimSpinner />;
   }
 
   return (
