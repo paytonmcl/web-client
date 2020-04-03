@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Button } from 'semantic-ui-react';
 
 const ChatCard = (props) => {
-  const { chatName, online, members } = props;
+  const { chatName, online, members, id } = props;
   const onlineIconStyle = {
     color: online ? 'teal' : 'red',
   };
@@ -16,6 +17,9 @@ const ChatCard = (props) => {
         <br />
         <Icon name="dot circle" /> {members} members
         <br />
+        <Link to={`/chat/${id}`}>
+          <Button style={{ float: 'right' }}>Join</Button>
+        </Link>
       </Card.Content>
     </Card>
   );

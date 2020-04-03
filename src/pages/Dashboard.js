@@ -8,26 +8,31 @@ import ChatList from './components-dashboard/ChatList';
 
 const mockData = [
   {
+    id: 1,
     chatName: 'Chat 1',
     online: 12,
     members: 21,
   },
   {
+    id: 2,
     chatName: 'Chat 2',
     online: 12,
     members: 21,
   },
   {
+    id: 3,
     chatName: 'Chat 3',
     online: 12,
     members: 21,
   },
   {
+    id: 4,
     chatName: 'Chat 4',
     online: 0,
     members: 21,
   },
   {
+    id: 5,
     chatName: 'Chat 5',
     online: 12,
     members: 21,
@@ -49,6 +54,7 @@ const Dashboard = () => {
             chatName={item.chatName}
             online={item.online}
             members={item.members}
+            id={item.id}
             key={idx}
           />
         );
