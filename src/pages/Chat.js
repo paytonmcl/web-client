@@ -34,6 +34,7 @@ Aut et numquam dolores porro ipsa assumenda aspernatur. Laudantium explicabo iur
 const Chat = () => {
   const { id } = useParams();
   const [events, setEvents] = useState([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     // fetch data
@@ -44,7 +45,17 @@ const Chat = () => {
         return <Message user={msg.user} message={msg.message} />;
       })
     );
+
+    setHasLoaded(true);
   }, []);
+
+  if (!hasLoaded) {
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <>
