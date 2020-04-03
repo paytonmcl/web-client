@@ -2,11 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Button, Container, Header, Grid } from 'semantic-ui-react';
-import './styles/home.css';
+
 const Home = () => {
+  const styles = {
+    container: {
+      textAlign: 'center',
+      align: 'auto',
+      fontSize: '32pt',
+    },
+    h1: {
+      marginTop: '2rem',
+    },
+  };
   return (
-    <Container className="container">
-      <Header as="h1">korero</Header>
+    <Container style={styles.container}>
+      <Header as="h1" style={styles.h1}>
+        korero
+      </Header>
       <Header.Subheader as="p">
         A simple, open-source chat application.
       </Header.Subheader>
