@@ -7,44 +7,23 @@ import ChatCard from './components-dashboard/ChatCard';
 import ChatList from './components-dashboard/ChatList';
 import MenuSidebar from './components-dashboard/MenuSidebar';
 import DimSpinner from './components-shared/DimSpinner';
+import ChatSearch from './components-dashboard/ChatSearch';
 
-const mockData = [
-  {
-    id: 1,
-    chatName: 'Chat 1',
-    online: 12,
-    members: 21,
-  },
-  {
-    id: 2,
-    chatName: 'Chat 2',
-    online: 12,
-    members: 21,
-  },
-  {
-    id: 3,
-    chatName: 'Chat 3',
-    online: 12,
-    members: 21,
-  },
-  {
-    id: 4,
-    chatName: 'Chat 4',
-    online: 0,
-    members: 21,
-  },
-  {
-    id: 5,
-    chatName: 'Chat 5',
-    online: 12,
-    members: 21,
-  },
-];
+let mockData = [];
+for (let i = 0; i <= 100; ++i) {
+  mockData.push({
+    id: i,
+    chatName: `Chat ${i}`,
+    online: 2 * i,
+    members: 3 * i,
+  });
+}
 
 const Dashboard = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [chats, setChats] = useState([]);
+  const [searchedName, setSearchedName] = useState('');
 
   useEffect(() => {
     const json = mockData;
@@ -86,7 +65,22 @@ const Dashboard = () => {
       </Menu>
       <MenuSidebar opened={menuOpened} setOpened={setMenuOpened} />
       <Container>
-        <ChatList chatCards={chats} />
+        <ChatSearch setSearchedName={setSearchedName} />
+        {/*
+            if searchedName is truthy, render chats whose names
+            include searchedName, otherwise return all chats
+          */}
+        {searchedName ? (
+          <ChatList
+            chatCards={chats.filter((chat) => {
+              return chat.props.chatName
+                .toLowerCase()
+                .match(searchedName.toLowerCase());
+            })}
+          />
+        ) : (
+          <ChatList chatCards={chats} />
+        )}
       </Container>
     </>
   );
