@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 
 import { Form, Input } from 'semantic-ui-react';
 
-import constraints from '../constraints';
-import './errors.css';
+import constraints from '../shared/constraints';
+import '../shared/validationErrors.css';
 
 const LoginForm = () => {
   const { handleSubmit, register, errors } = useForm();
