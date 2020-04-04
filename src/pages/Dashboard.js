@@ -9,16 +9,6 @@ import MenuSidebar from './components-dashboard/MenuSidebar';
 import DimSpinner from './components-shared/DimSpinner';
 import ChatSearch from './components-dashboard/ChatSearch';
 
-let mockData = [];
-for (let i = 0; i <= 100; ++i) {
-  mockData.push({
-    id: i,
-    chatName: `Chat ${i}`,
-    online: 2 * i,
-    members: 3 * i,
-  });
-}
-
 const Dashboard = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -26,6 +16,17 @@ const Dashboard = () => {
   const [searchedName, setSearchedName] = useState('');
 
   useEffect(() => {
+    // TODO: Replace with actual fetch code
+    let mockData = [];
+    for (let i = 0; i <= 100; ++i) {
+      mockData.push({
+        id: i,
+        chatName: `Chat ${i}`,
+        online: 2 * i,
+        members: 3 * i,
+      });
+    }
+
     const json = mockData;
 
     setChats(
