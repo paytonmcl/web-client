@@ -7,27 +7,41 @@ const LoginForm = () => {
   return (
     <Form>
       <Form.Field>
-        <label>Username</label>
-        <input type="text" placeholder="Username" name="username" required />
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          placeholder="Username"
+          id="username"
+          name="username"
+          required
+        />
       </Form.Field>
       <Form.Field>
-        <label>E-mail</label>
-        <input type="email" placeholder="Email" name="username" required />
+        <label htmlFor="email">E-mail</label>
+        <input
+          type="email"
+          placeholder="Email"
+          id="email"
+          name="email"
+          required
+        />
       </Form.Field>
       <Form.Field>
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           placeholder="Password"
+          id="password"
           name="password"
           required
         />
       </Form.Field>
       <Form.Field>
-        <label>Confirm password</label>
+        <label htmlFor="password2">Confirm password</label>
         <input
           type="password"
           placeholder="Confirm password"
+          id="password2"
           name="password2"
           required
         />

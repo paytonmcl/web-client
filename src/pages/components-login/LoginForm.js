@@ -7,14 +7,21 @@ const LoginForm = () => {
   return (
     <Form>
       <Form.Field>
-        <label>Username</label>
-        <input type="text" placeholder="Username" name="username" required />
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          placeholder="Username"
+          id="username"
+          name="username"
+          required
+        />
       </Form.Field>
       <Form.Field>
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           placeholder="Password"
+          id="password"
           name="password"
           required
         />
