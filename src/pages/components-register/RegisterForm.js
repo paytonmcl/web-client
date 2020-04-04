@@ -1,16 +1,17 @@
 import React from 'react';
-//import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { Form, Input } from 'semantic-ui-react';
 
-import constraints from './constraints';
+import constraints from '../constraints';
 import './errors.css';
 
 const LoginForm = () => {
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = (data) => {
+    // TODO: replace with a backend request
     console.log(data);
   };
 
@@ -76,9 +77,9 @@ const LoginForm = () => {
           </p>
         )}
       </Form.Field>
-      {/* TODO: replace Link with a submit handler */}
-
       <Input type="submit" value="Submit" />
+      {/* TODO: Remove this when the backend becomes available */}
+      <Link to="/dashboard">Go to dashboard</Link>
     </Form>
   );
 };
