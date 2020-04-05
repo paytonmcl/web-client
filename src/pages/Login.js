@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Header } from 'semantic-ui-react';
 
-import LoginForm from './components-login/LoginForm';
+import LoginForm from './components/login/LoginForm';
 
 const Login = () => {
   return (

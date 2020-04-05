@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { Container, Icon, Menu, Feed } from 'semantic-ui-react';
 
-import Message from './components-chat/Message';
-import DimSpinner from './components-shared/DimSpinner';
+import Message from './components/chat/Message';
+import DimSpinner from './components/shared/DimSpinner';
 
 const mockChat = [
   {

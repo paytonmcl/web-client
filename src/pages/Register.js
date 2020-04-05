@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from 'semantic-ui-react';
 
-import RegisterForm from './components-register/RegisterForm';
+import RegisterForm from './components/register/RegisterForm';
 
 const Register = () => {
   return (

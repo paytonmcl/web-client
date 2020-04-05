@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Menu, Icon, Container } from 'semantic-ui-react';
 
 import './styles/dashboard.css';
-import ChatCard from './components-dashboard/ChatCard';
-import ChatList from './components-dashboard/ChatList';
-import MenuSidebar from './components-dashboard/MenuSidebar';
-import DimSpinner from './components-shared/DimSpinner';
-import ChatSearch from './components-dashboard/ChatSearch';
+import ChatCard from './components/dashboard/ChatCard';
+import ChatList from './components/dashboard/ChatList';
+import MenuSidebar from './components/dashboard/MenuSidebar';
+import DimSpinner from './components/shared/DimSpinner';
+import ChatSearch from './components/dashboard/ChatSearch';
 
 const Dashboard = () => {
   const [menuOpened, setMenuOpened] = useState(false);
