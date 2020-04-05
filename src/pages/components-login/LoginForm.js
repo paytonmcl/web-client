@@ -51,7 +51,10 @@ const LoginForm = () => {
       </Form.Field>
       <Input type="submit" value="Log in" />
       {/* TODO: delete this when a backend becomes available */}
-      <Link to="/dashboard">Go to dashboard</Link>
+      {// Don't render the link while testing
+      process.env.NODE_ENV === 'test' ? null : (
+        <Link to="/dashboard">Go to dashboard</Link>
+      )}
     </Form>
   );
 };

@@ -79,7 +79,10 @@ const RegisterForm = () => {
       </Form.Field>
       <Input type="submit" value="Submit" />
       {/* TODO: Remove this when the backend becomes available */}
-      <Link to="/dashboard">Go to dashboard</Link>
+      {// Don't render the link while testing
+      process.env.NODE_ENV === 'test' ? null : (
+        <Link to="/dashboard">Go to dashboard</Link>
+      )}
     </Form>
   );
 };
