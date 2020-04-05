@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Container, Icon, Menu, Feed } from 'semantic-ui-react';
 
@@ -57,7 +57,7 @@ const Chat = () => {
   return (
     <>
       <Menu>
-        <Menu.Item name="back" href="/dashboard">
+        <Menu.Item as={Link} name="back" to="/dashboard">
           <Icon name="arrow left" />
         </Menu.Item>
         <Menu.Menu position="right">

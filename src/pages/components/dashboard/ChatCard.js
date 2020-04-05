@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const ChatCard = (props) => {
   const { chatName, online, members, id } = props;
@@ -9,7 +10,7 @@ const ChatCard = (props) => {
   };
 
   return (
-    <Card style={{ cursor: 'pointer' }} href={`/chat/${id}`}>
+    <Card as={Link} style={{ cursor: 'pointer' }} to={`/chat/${id}`}>
       <Card.Content header={chatName} />
       <Card.Content extra>
         <Icon
