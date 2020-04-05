@@ -12,7 +12,12 @@ const ChatCard = (props) => {
     <Card style={{ cursor: 'pointer' }} href={`/chat/${id}`}>
       <Card.Content header={chatName} />
       <Card.Content extra>
-        <Icon name="dot circle" style={onlineIconStyle} /> {online} online
+        <Icon
+          name="dot circle"
+          style={onlineIconStyle}
+          data-testid="onlineIcon"
+        />{' '}
+        {online} online
         <br />
         <Icon name="dot circle" /> {members} members
         <br />
