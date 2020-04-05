@@ -1,3 +1,6 @@
+# korero Web Client [![korero-chat](https://circleci.com/gh/korero-chat/web-client.svg?style=shield)](https://app.circleci.com/pipelines/github/korero-chat/web-client)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
