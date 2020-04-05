@@ -9,8 +9,14 @@ const ChatCard = (props) => {
     color: online ? 'teal' : 'red',
   };
 
+  const isTesting = process.env.NODE_ENV === 'test';
+
   return (
-    <Card as={Link} style={{ cursor: 'pointer' }} to={`/chat/${id}`}>
+    <Card
+      as={isTesting ? null : Link}
+      style={{ cursor: 'pointer' }}
+      to={`/chat/${id}`}
+    >
       <Card.Content header={chatName} />
       <Card.Content extra>
         <Icon

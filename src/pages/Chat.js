@@ -37,6 +37,8 @@ const Chat = () => {
   const [events, setEvents] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
 
+  const isTesting = process.env.NODE_ENV === 'test';
+
   useEffect(() => {
     // fetch data
     const json = mockChat;
@@ -57,7 +59,7 @@ const Chat = () => {
   return (
     <>
       <Menu>
-        <Menu.Item as={Link} name="back" to="/dashboard">
+        <Menu.Item as={isTesting ? null : Link} name="back" to="/dashboard">
           <Icon name="arrow left" />
         </Menu.Item>
         <Menu.Menu position="right">
