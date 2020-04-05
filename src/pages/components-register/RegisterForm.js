@@ -7,7 +7,7 @@ import { Form, Input } from 'semantic-ui-react';
 import constraints from '../shared/constraints';
 import '../shared/validationErrors.css';
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = (data) => {
@@ -84,4 +84,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
