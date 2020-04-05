@@ -66,7 +66,7 @@ const Chat = () => {
           <h3>{id}</h3>
         </Menu.Menu>
       </Menu>
-      <Container>
+      <Container className="animated fadeIn fast">
         <Feed>{events}</Feed>
       </Container>
     </>
