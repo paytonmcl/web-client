@@ -7,7 +7,9 @@ const ChatList = (props) => {
   const { chatCards } = props;
 
   return !_.isEmpty(chatCards) ? (
-    <Card.Group stackable>{chatCards}</Card.Group>
+    <Card.Group stackable itemsPerRow={4}>
+      {chatCards}
+    </Card.Group>
   ) : (
     <p>No chats found</p>
   );
