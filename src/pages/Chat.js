@@ -5,6 +5,7 @@ import { Container, Icon, Menu, Feed } from 'semantic-ui-react';
 
 import Message from './components/chat/Message';
 import DimSpinner from './components/shared/DimSpinner';
+import MessageInput from './components/chat/MessageInput';
 
 const mockChat = [
   {
@@ -68,6 +69,7 @@ const Chat = () => {
       </Menu>
       <Container>
         <Feed>{events}</Feed>
+        <MessageInput />
       </Container>
     </>
   );
