@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react';
 
 import { Menu, Icon, Container } from 'semantic-ui-react';
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     // TODO: Replace with actual fetch code
-    let mockData = [];
+    let mockData: object[] = [];
     for (let i = 0; i <= 100; ++i) {
       mockData.push({
         id: i,
@@ -27,10 +27,10 @@ const Dashboard = () => {
       });
     }
 
-    const json = mockData;
+    const json: object[] = mockData;
 
     setChats(
-      json.map((item, idx) => {
+      json.map((item: object, idx: number) => {
         return (
           <ChatCard
             chatName={item.chatName}
@@ -73,7 +73,7 @@ const Dashboard = () => {
           */}
         {searchedName ? (
           <ChatList
-            chatCards={chats.filter((chat) => {
+            chatCards={chats.filter((chat: ReactElement) => {
               return chat.props.chatName
                 .toLowerCase()
                 .match(searchedName.toLowerCase());

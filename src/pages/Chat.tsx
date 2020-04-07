@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { Container, Icon, Menu, Feed } from 'semantic-ui-react';
@@ -7,7 +7,7 @@ import Message from './components/chat/Message';
 import DimSpinner from './components/shared/DimSpinner';
 import MessageInput from './components/chat/MessageInput';
 
-const mockChat = [
+const mockChat: object[] = [
   {
     user: 'bartek',
     message: 'Hello world!',
@@ -33,7 +33,7 @@ Aut et numquam dolores porro ipsa assumenda aspernatur. Laudantium explicabo iur
   },
 ];
 
-const Chat = () => {
+const Chat = (): ReactElement => {
   const { id } = useParams();
   const [events, setEvents] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -42,16 +42,16 @@ const Chat = () => {
 
   useEffect(() => {
     // fetch data
-    const json = mockChat;
+    const json: object[] = mockChat;
 
     setEvents(
-      json.map((msg) => {
+      json.map((msg: object) => {
         return <Message user={msg.user} message={msg.message} />;
       })
     );
 
     setHasLoaded(true);
-  }, []);
+  }, [mockChat]);
 
   if (!hasLoaded) {
     return <DimSpinner />;
