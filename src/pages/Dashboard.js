@@ -65,7 +65,7 @@ const Dashboard = () => {
         </Menu.Menu>
       </Menu>
       <MenuSidebar opened={menuOpened} setOpened={setMenuOpened} />
-      <Container>
+      <Container className="animated fadeIn">
         <ChatSearch setSearchedName={setSearchedName} />
         {/*
             if searchedName is truthy, render chats whose names
