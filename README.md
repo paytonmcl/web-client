@@ -1,4 +1,4 @@
-# korero Web Client [![korero-chat](https://circleci.com/gh/korero-chat/web-client.svg?style=shield)](https://app.circleci.com/pipelines/github/korero-chat/web-client)
+# korero Web Client [![korero-chat](https://circleci.com/gh/korero-chat/web-client.svg?style=shield)](https://app.circleci.com/pipelines/github/korero-chat/web-client) [![Netlify Status](https://api.netlify.com/api/v1/badges/17c501cf-5b5f-4e39-b9f4-9ec76b80ccc0/deploy-status)](https://app.netlify.com/sites/korerowebapp/deploys)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
