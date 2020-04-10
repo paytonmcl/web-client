@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-import { Form } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 
-const ChatSearch = ({ setSearchedName }) => {
+const ChatSearch = ({ searchedName, setSearchedName }) => {
   const [query, setQuery] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(query);
+    // console.log(query);
     setSearchedName(query);
     setQuery('');
   };
@@ -21,6 +21,14 @@ const ChatSearch = ({ setSearchedName }) => {
           value={query}
         />
         <Form.Input type="submit" value="Search" />
+        {searchedName ? (
+          <Form.Button
+            as={Icon}
+            name="times"
+            onClick={() => setSearchedName('')}
+            style={{ color: 'red', fontSize: 24, cursor: 'pointer' }}
+          />
+        ) : null}
       </Form.Group>
     </Form>
   );
