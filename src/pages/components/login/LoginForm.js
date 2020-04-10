@@ -29,7 +29,7 @@ const LoginForm = () => {
         />
         {errors.username && (
           <p className="error">
-            Invalid username (must be 4-20 characters long)
+            Invalid username (must be 3-20 characters long)
           </p>
         )}
       </Form.Field>
@@ -45,7 +45,7 @@ const LoginForm = () => {
         />
         {errors.password && (
           <p className="error">
-            Invalid password (must be at least 5 characters long)
+            Invalid password (must be at least 8 characters long)
           </p>
         )}
       </Form.Field>
