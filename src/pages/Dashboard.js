@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Menu, Icon, Container } from 'semantic-ui-react';
 
@@ -62,6 +63,11 @@ const Dashboard = () => {
         </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item><h3>Chats</h3></Menu.Item>
+          <Menu.Item>
+            <Link to="/logout">
+            <h3 style={{ color: 'red' }}>Log Out</h3>
+            </Link>
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
       <MenuSidebar opened={menuOpened} setOpened={setMenuOpened} />
