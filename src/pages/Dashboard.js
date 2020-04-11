@@ -61,7 +61,7 @@ const Dashboard = () => {
           <Icon name="bars" />
         </Menu.Item>
         <Menu.Menu position="right">
-          <h3>Chats</h3>
+          <Menu.Item><h3>Chats</h3></Menu.Item>
         </Menu.Menu>
       </Menu>
       <MenuSidebar opened={menuOpened} setOpened={setMenuOpened} />

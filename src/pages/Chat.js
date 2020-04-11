@@ -64,7 +64,7 @@ const Chat = () => {
           <Icon name="arrow left" />
         </Menu.Item>
         <Menu.Menu position="right">
-          <h3>{id}</h3>
+          <Menu.Item><h3>{id}</h3></Menu.Item>
         </Menu.Menu>
       </Menu>
       <Container className="animated fadeIn fast">
