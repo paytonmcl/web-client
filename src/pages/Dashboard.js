@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { Menu, Icon, Container } from 'semantic-ui-react';
 
@@ -48,6 +48,10 @@ const Dashboard = () => {
   }, []);
 
   if (!hasLoaded) {
+    if (!localStorage.getItem('jwt')) {
+      return <Redirect to="/login" />
+    }
+
     return <DimSpinner />;
   }
 
