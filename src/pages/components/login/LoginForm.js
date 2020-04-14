@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -7,16 +7,36 @@ import { Form, Input } from 'semantic-ui-react';
 import constraints from '../shared/constraints';
 import '../shared/validationErrors.css';
 
-const LoginForm = () => {
+const LoginForm = ({ setJwtPresent }) => {
   const { handleSubmit, register, errors } = useForm();
+  const [invalidCreds, setInvalidCreds] = useState(false);
 
-  const onSubmit = (data) => {
-    // TODO: replace with a backend request
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch('/backend/login', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data),
+      credentials: 'include',
+    });
+    const json = await res.json();
+    const token = json['token'];
+
+    if (token) {
+      localStorage.setItem('jwt', token);
+      setJwtPresent(true);
+    } else {
+      setInvalidCreds(true);
+    }
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form action="#" onSubmit={handleSubmit(onSubmit)}>
+      {invalidCreds ? (
+        <p className="error">Invalid credentials. Please try again.</p>
+      ) : null}
       <Form.Field>
         <label htmlFor="username">Username</label>
         <input
