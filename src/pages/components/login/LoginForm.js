@@ -9,7 +9,7 @@ import '../shared/validationErrors.css';
 
 const LoginForm = ({ setJwtPresent }) => {
   const { handleSubmit, register, errors } = useForm();
-  const [invalidCreds, setInvalidCreds] = useState(false);
+  const [error, setError] = useState(null);
 
   const onSubmit = async (data) => {
     const res = await fetch('/backend/login', {
@@ -21,6 +21,11 @@ const LoginForm = ({ setJwtPresent }) => {
       body: JSON.stringify(data),
       credentials: 'include',
     });
+    if (res.status === 500) {
+      setError('Sorry, cannot connect to the server! Try again later.');
+      return;
+    }
+
     const json = await res.json();
     const token = json['token'];
 
@@ -28,15 +33,13 @@ const LoginForm = ({ setJwtPresent }) => {
       localStorage.setItem('jwt', token);
       setJwtPresent(true);
     } else {
-      setInvalidCreds(true);
+      setError('Invalid credentials. Please try again.');
     }
   };
 
   return (
     <Form action="#" onSubmit={handleSubmit(onSubmit)}>
-      {invalidCreds ? (
-        <p className="error">Invalid credentials. Please try again.</p>
-      ) : null}
+      {error ? <p className="error">{error}</p> : null}
       <Form.Field>
         <label htmlFor="username">Username</label>
         <input
