@@ -1,5 +1,7 @@
 # Contributing to korero
 
+**Note: Discord invite links have been temporarily disabled.**
+
 So you want to contribute? That's great!
 Everybody is welcome. Let me show you how to take part in the project.
 
