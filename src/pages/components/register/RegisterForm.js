@@ -37,7 +37,6 @@ const RegisterForm = ({ setRegistered }) => {
       default:
         setError('An unknown error has occurred.');
     }
-    console.log(res);
   };
 
   return (
