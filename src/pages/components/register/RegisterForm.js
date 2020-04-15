@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -7,16 +7,42 @@ import { Form, Input } from 'semantic-ui-react';
 import constraints from '../shared/constraints';
 import '../shared/validationErrors.css';
 
-const RegisterForm = () => {
+const RegisterForm = ({ setRegistered }) => {
   const { handleSubmit, register, errors } = useForm();
+  const [error, setError] = useState(null);
 
-  const onSubmit = (data) => {
-    // TODO: replace with a backend request
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch('/backend/register', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data),
+      credentials: 'include',
+    });
+    switch (res.status) {
+      case 500:
+        setError('An internal server error has occurred! Try again later.');
+        break;
+      case 409:
+        setError('Please use a different username.');
+        break;
+      case 422:
+        setError('One or more fields are invalid.');
+        break;
+      case 201:
+        setRegistered(true);
+        return;
+      default:
+        setError('An unknown error has occurred.');
+    }
+    console.log(res);
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      {error ? <p className="error">{error}</p> : null}
       <Form.Field>
         <label htmlFor="username">Username</label>
         <input
