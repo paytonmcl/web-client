@@ -21,19 +21,27 @@ const LoginForm = ({ setJwtPresent }) => {
       body: JSON.stringify(data),
       credentials: 'include',
     });
-    if (res.status === 500) {
-      setError('Sorry, cannot connect to the server! Try again later.');
-      return;
-    }
-
-    const json = await res.json();
-    const token = json['token'];
-
-    if (token) {
-      localStorage.setItem('jwt', token);
-      setJwtPresent(true);
-    } else {
-      setError('Invalid credentials. Please try again.');
+    switch (res.status) {
+      case 500:
+        setError('An internal server error has occurred! Try again later.');
+        break;
+      case 422:
+      case 401:
+        setError('Invalid credentials. Try again.');
+        break;
+      case 200:
+        const json = await res.json();
+        const token = json.token;
+        if (token) {
+          localStorage.setItem('jwt', token);
+          setJwtPresent(true);
+          return;
+        } else {
+          setError('No token received!');
+        }
+        break;
+      default:
+        setError(`An unknown error has occurred. Code: ${res.status}`);
     }
   };
 
