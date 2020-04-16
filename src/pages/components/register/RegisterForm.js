@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { Form, Input } from 'semantic-ui-react';
@@ -103,11 +102,6 @@ const RegisterForm = ({ setRegistered }) => {
         )}
       </Form.Field>
       <Input type="submit" value="Submit" />
-      {/* TODO: Remove this when the backend becomes available */}
-      {// Don't render the link while testing
-      process.env.NODE_ENV === 'test' ? null : (
-        <Link to="/dashboard">Go to dashboard</Link>
-      )}
     </Form>
   );
 };

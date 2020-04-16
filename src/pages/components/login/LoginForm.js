@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { Form, Input } from 'semantic-ui-react';
@@ -81,11 +80,6 @@ const LoginForm = ({ setJwtPresent }) => {
         )}
       </Form.Field>
       <Input type="submit" value="Log in" />
-      {/* TODO: delete this when a backend becomes available */}
-      {// Don't render the link while testing
-      process.env.NODE_ENV === 'test' ? null : (
-        <Link to="/dashboard">Go to dashboard</Link>
-      )}
     </Form>
   );
 };
