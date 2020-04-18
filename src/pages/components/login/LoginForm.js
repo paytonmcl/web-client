@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Form, Input } from 'semantic-ui-react';
@@ -7,16 +6,47 @@ import { Form, Input } from 'semantic-ui-react';
 import constraints from '../shared/constraints';
 import '../shared/validationErrors.css';
 
-const LoginForm = () => {
+const LoginForm = ({ setJwtPresent }) => {
   const { handleSubmit, register, errors } = useForm();
+  const [error, setError] = useState(null);
 
-  const onSubmit = (data) => {
-    // TODO: replace with a backend request
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch('/backend/login', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data),
+      credentials: 'include',
+    });
+    switch (res.status) {
+      case 500:
+        setError('An internal server error has occurred! Try again later.');
+        break;
+      case 422:
+      case 401:
+        setError('Invalid credentials. Try again.');
+        break;
+      case 200:
+        const json = await res.json();
+        const token = json.token;
+        if (token) {
+          localStorage.setItem('jwt', token);
+          setJwtPresent(true);
+          return;
+        } else {
+          setError('No token received!');
+        }
+        break;
+      default:
+        setError(`An unknown error has occurred. Code: ${res.status}`);
+    }
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form action="#" onSubmit={handleSubmit(onSubmit)}>
+      {error ? <p className="error">{error}</p> : null}
       <Form.Field>
         <label htmlFor="username">Username</label>
         <input
@@ -50,11 +80,6 @@ const LoginForm = () => {
         )}
       </Form.Field>
       <Input type="submit" value="Log in" />
-      {/* TODO: delete this when a backend becomes available */}
-      {// Don't render the link while testing
-      process.env.NODE_ENV === 'test' ? null : (
-        <Link to="/dashboard">Go to dashboard</Link>
-      )}
     </Form>
   );
 };

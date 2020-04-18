@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Register from './pages/Register';
+import RegisterSuccessful from './pages/RegisterSuccessful';
 import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -14,6 +15,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/register" component={Register} />
+      <Route path="/register-successful" component={RegisterSuccessful} />
       <Route path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/chat/:id" component={Chat} />
