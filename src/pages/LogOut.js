@@ -1,15 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+
+import { Container, Header } from 'semantic-ui-react';
+import LoginForm from './components/login/LoginForm';
 
 const LogOut = () => {
   localStorage.clear();
 
+  const [setJwtPresent] = useState(
+    localStorage.getItem('jwt') != null
+  );
+  
+
   return (
     <>
+      <Container className="animated fadeInUp" style={{ marginTop: '5vh' }}>
       <p>You have been logged out!</p>
-      <Link to="/login">
-        <p>Click here to log in again.</p>
-      </Link>
+      <Header as="h1">Log in</Header>
+      <LoginForm setJwtPresent={setJwtPresent} />
+    </Container>
     </>
   );
 };
